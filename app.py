@@ -63,7 +63,7 @@ with st.sidebar:
         <div style='font-size: 0.75rem; color: #444; margin-top: 0.2rem;'>ML Price Estimator</div>
     </div>
     """, unsafe_allow_html=True)
-    menu = st.radio("Navigation", ["🔍 Predict Price", "📊 Model Evaluation", "📉 EDA", "📖 Description"], label_visibility="collapsed")
+    menu = st.radio("Navigation", ["🔍 Predict Price", "📖 Description", "📉 EDA", "📊 Model Evaluation"], label_visibility="collapsed")
     st.markdown("""
     <div style='margin-top: 3rem; font-size: 0.72rem; color: #333; line-height: 1.8;'>
         Random Forest Regression<br>R² Test: 0.804 · MAPE: 7.98%<br>Dataset: 1,000 cars
@@ -204,44 +204,44 @@ elif menu == "📉 EDA":
         st.markdown("""
         <div class="desc-block" style="height:100%">
             <h4>📌 What This Shows</h4>
-            <p>Scatter plot menampilkan hubungan antara <strong style="color:#fff">Mileage (jarak tempuh)</strong> dengan <strong style="color:#fff">Price (harga)</strong> untuk setiap mobil di dataset.</p>
+            <p>This scatter plot displays the relationship between <strong style="color:#fff">Mileage</strong> and <strong style="color:#fff">Price</strong> for every car in the dataset.</p>
             <br>
             <h4>💡 Key Insights</h4>
             <ul>
-                <li>Tren <strong style="color:#fff">negatif</strong> terlihat jelas — semakin tinggi mileage, semakin rendah harga</li>
-                <li>Korelasi Mileage vs Price = <strong style="color:#e8c547">-0.56</strong> (cukup kuat)</li>
-                <li>Mobil dengan mileage rendah (0–25.000 km) cenderung berharga <strong style="color:#fff">$30.000–$42.000</strong></li>
-                <li>Mobil dengan mileage tinggi (175.000+ km) harganya turun ke <strong style="color:#fff">$10.000–$20.000</strong></li>
-                <li>Ada beberapa <strong style="color:#fff">outlier</strong> di mileage tinggi dengan harga yang masih relatif tinggi</li>
+                <li>A clear <strong style="color:#fff">negative trend</strong> — higher mileage leads to lower price</li>
+                <li>Mileage vs Price correlation = <strong style="color:#e8c547">-0.56</strong> (moderately strong)</li>
+                <li>Cars with low mileage (0–25,000 km) tend to be priced at <strong style="color:#fff">$30,000–$42,000</strong></li>
+                <li>Cars with high mileage (175,000+ km) drop to <strong style="color:#fff">$10,000–$20,000</strong></li>
+                <li>A few <strong style="color:#fff">outliers</strong> exist at high mileage with unexpectedly high prices</li>
             </ul>
             <br>
-            <h4>🤖 Implikasi ke Model</h4>
-            <p>Mileage adalah salah satu fitur <strong style="color:#e8c547">paling berpengaruh</strong> terhadap prediksi harga — urutan kedua setelah Year.</p>
+            <h4>🤖 Model Implication</h4>
+            <p>Mileage is one of the <strong style="color:#e8c547">most influential</strong> features for price prediction — ranked second after Year.</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
     # ── Histogram ────────────────────────────────────────────
-    st.markdown('<div class="card-title">📊 Histogram — Distribusi Price</div>', unsafe_allow_html=True)
+    st.markdown('<div class="card-title">📊 Histogram — Price Distribution</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([1, 1.4], gap="large")
     with col1:
         st.markdown("""
         <div class="desc-block">
             <h4>📌 What This Shows</h4>
-            <p>Histogram menampilkan <strong style="color:#fff">distribusi harga</strong> seluruh mobil di dataset — seberapa banyak mobil yang jatuh di rentang harga tertentu.</p>
+            <p>This histogram shows the <strong style="color:#fff">price distribution</strong> across all cars — how many cars fall within each price range.</p>
             <br>
             <h4>💡 Key Insights</h4>
             <ul>
-                <li>Distribusi harga mendekati <strong style="color:#fff">bentuk lonceng (normal)</strong> — bagus untuk model</li>
-                <li>Harga paling banyak berkumpul di rentang <strong style="color:#e8c547">$22.000–$28.000</strong></li>
-                <li>Harga minimum sekitar <strong style="color:#fff">$5.000</strong>, maksimum sekitar <strong style="color:#fff">$42.000</strong></li>
-                <li>Tidak ada outlier ekstrem yang perlu dihapus</li>
-                <li>Dataset cukup <strong style="color:#fff">seimbang</strong> — tidak terlalu skewed ke satu sisi</li>
+                <li>Price distribution is close to a <strong style="color:#fff">bell curve (normal)</strong> — great for modeling</li>
+                <li>Most cars are priced between <strong style="color:#e8c547">$22,000–$28,000</strong></li>
+                <li>Minimum price ~<strong style="color:#fff">$5,000</strong>, maximum ~<strong style="color:#fff">$42,000</strong></li>
+                <li>No extreme outliers that require removal</li>
+                <li>Dataset is fairly <strong style="color:#fff">balanced</strong> — not heavily skewed to one side</li>
             </ul>
             <br>
-            <h4>🤖 Implikasi ke Model</h4>
-            <p>Distribusi yang mendekati normal membuat model lebih mudah mempelajari pola harga tanpa transformasi tambahan.</p>
+            <h4>🤖 Model Implication</h4>
+            <p>A near-normal distribution allows the model to learn price patterns more easily without additional transformations.</p>
         </div>
         """, unsafe_allow_html=True)
     with col2:
@@ -250,7 +250,7 @@ elif menu == "📉 EDA":
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
     # ── Heatmap ──────────────────────────────────────────────
-    st.markdown('<div class="card-title">🌡️ Heatmap — Korelasi Antar Fitur Numerik</div>', unsafe_allow_html=True)
+    st.markdown('<div class="card-title">🌡️ Heatmap — Correlation Between Numerical Features</div>', unsafe_allow_html=True)
     col1, col2 = st.columns([1.4, 1], gap="large")
     with col1:
         st.image('images/heatmap.png', use_column_width=True)
@@ -258,18 +258,18 @@ elif menu == "📉 EDA":
         st.markdown("""
         <div class="desc-block">
             <h4>📌 What This Shows</h4>
-            <p>Heatmap menampilkan nilai <strong style="color:#fff">korelasi</strong> antar kolom numerik. Nilai mendekati <strong style="color:#e8c547">1.0</strong> = hubungan positif kuat, mendekati <strong style="color:#e8c547">-1.0</strong> = hubungan negatif kuat.</p>
+            <p>The heatmap shows <strong style="color:#fff">correlation values</strong> between numerical columns. Values near <strong style="color:#e8c547">1.0</strong> = strong positive, near <strong style="color:#e8c547">-1.0</strong> = strong negative.</p>
             <br>
             <h4>💡 Key Insights</h4>
             <ul>
-                <li><strong style="color:#fff">Year vs Price = 0.61</strong> — mobil tahun baru cenderung lebih mahal ✅</li>
-                <li><strong style="color:#fff">Mileage vs Price = -0.56</strong> — jarak tempuh tinggi = harga turun ✅</li>
-                <li><strong style="color:#fff">Engine Size vs Price = 0.38</strong> — mesin besar sedikit lebih mahal ✅</li>
-                <li>Year dan Mileage hampir <strong style="color:#fff">tidak berkorelasi (0.016)</strong> — keduanya memberi informasi berbeda ke model</li>
+                <li><strong style="color:#fff">Year vs Price = 0.61</strong> — newer cars tend to be more expensive ✅</li>
+                <li><strong style="color:#fff">Mileage vs Price = -0.56</strong> — high mileage = lower price ✅</li>
+                <li><strong style="color:#fff">Engine Size vs Price = 0.38</strong> — bigger engine = slightly higher price ✅</li>
+                <li>Year and Mileage are nearly <strong style="color:#fff">uncorrelated (0.016)</strong> — both provide unique information to the model</li>
             </ul>
             <br>
-            <h4>🤖 Implikasi ke Model</h4>
-            <p><strong style="color:#e8c547">Year</strong> dan <strong style="color:#e8c547">Mileage</strong> adalah dua fitur terpenting. Tidak ada multikolinearitas tinggi antar fitur — semua fitur aman dipakai bersamaan.</p>
+            <h4>🤖 Model Implication</h4>
+            <p><strong style="color:#e8c547">Year</strong> and <strong style="color:#e8c547">Mileage</strong> are the two most important features. No high multicollinearity detected — all features are safe to use together.</p>
         </div>
         """, unsafe_allow_html=True)
 
