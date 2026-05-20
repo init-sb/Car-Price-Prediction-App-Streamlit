@@ -46,6 +46,45 @@ h1, h2, h3 { font-family: 'Syne', sans-serif !important; }
 .stSelectbox > div > div { background: #111 !important; border: 1px solid #2a2a2a !important; border-radius: 10px !important; color: #fff !important; }
 .stNumberInput > div > div > input { background: #111 !important; border: 1px solid #2a2a2a !important; border-radius: 10px !important; color: #fff !important; }
 .divider { border: none; border-top: 1px solid #1f1f1f; margin: 1.5rem 0; }
+
+@media screen and (max-width: 1200px) {
+    .block-container { padding: 1.75rem 2rem; }
+    .hero-title { font-size: 2.45rem; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .result-price { font-size: 3rem; }
+}
+
+@media screen and (max-width: 768px) {
+    .block-container { padding: 1.25rem 1rem; }
+    .hero-title { font-size: 2rem; line-height: 1.15; }
+    .hero-sub { font-size: 0.88rem; margin-bottom: 1.3rem; }
+    .card { padding: 1.2rem; border-radius: 12px; }
+    .desc-block { padding: 1.2rem; border-radius: 12px; }
+    .metric-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .metric-card { padding: 1.2rem; }
+    .metric-val { font-size: 1.55rem; }
+    .result-box { padding: 1.6rem 1rem; border-radius: 12px; }
+    .result-price { font-size: 2.35rem; }
+    .result-badges { gap: 0.55rem; }
+    .badge { width: 100%; text-align: center; padding: 0.45rem 0.8rem; }
+    .stButton > button { padding: 0.75rem 1rem; font-size: 0.9rem; }
+    img { max-width: 100%; height: auto; }
+}
+
+@media screen and (max-width: 480px) {
+    .block-container { padding: 1rem 0.75rem; }
+    .hero-title { font-size: 1.7rem; }
+    .hero-sub { font-size: 0.82rem; }
+    .card-title { font-size: 0.62rem; letter-spacing: 0.1em; }
+    .desc-block h4 { font-size: 0.86rem; }
+    .desc-block p, .desc-block li { font-size: 0.8rem; line-height: 1.6; }
+    .metric-lbl { font-size: 0.68rem; }
+    .metric-desc { font-size: 0.72rem; }
+    .result-label { font-size: 0.68rem; }
+    .result-price { font-size: 1.95rem; }
+    .result-range { font-size: 0.72rem; }
+    .feat-label { font-size: 0.76rem; gap: 0.5rem; }
+}
 </style>
 """, unsafe_allow_html=True)
 
